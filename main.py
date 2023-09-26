@@ -4,6 +4,7 @@ import time
 import locale
 import builtins
 
+
 # locale.setlocale(locale.LC_ALL, 'ru')
 
 
@@ -915,4 +916,51 @@ import builtins
 #
 # print(typed_fn2('hell', 'hell', '!'))
 
+# def change(x, c_old, c_new):
+#     str_ = ''
+#     for i in x:
+#         if i == c_old:
+#             str_ += c_new
+#             continue
+#         str_ += i
+#     return str_
+#
+#
+# str1 = "Я изучаю Nuthon. Мне нравится Nuthon. Nuthon очень интересный язык программирования."
+# str2 = change(str1, 'N', 'P')
+# print(str1)
+# print(str2)
 
+# s = 'Test string for me'
+# arr = [ord(i) for i in s]
+# print('ASCII коды', arr)
+# x = [int(sum(arr) / len(arr))] + arr
+# print(x)
+
+# print(chr(92))
+# print(chr(158346))
+
+# a, b = 122, 97
+# if a < b:
+#     a, b = b, a
+# arr = [chr(i) for i in range(b, a + 1)]
+# print(''.join(arr))
+
+# str_ = ''.join([chr(i) for i in range(10)])
+# print(type(str_))
+# print(str_)
+
+
+def func(a):
+    numb = ''
+    while a > 0:
+        numb = str(a % 2) + numb
+        a = a // 2
+    print(numb)
+
+
+while True:
+    x = int(input('-> '))
+    if x == 0:
+        break
+    func(x)
