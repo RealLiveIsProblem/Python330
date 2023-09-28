@@ -4,7 +4,6 @@ import time
 import locale
 import builtins
 
-
 # locale.setlocale(locale.LC_ALL, 'ru')
 
 
@@ -950,17 +949,36 @@ import builtins
 # print(type(str_))
 # print(str_)
 
+#
+# def func(a):
+#     numb = ''
+#     while a > 0:
+#         numb = str(a % 2) + numb
+#         a = a // 2
+#     print(numb)
+#
+#
+# while True:
+#     x = int(input('-> '))
+#     if x == 0:
+#         break
+#     func(x)
 
-def func(a):
-    numb = ''
-    while a > 0:
-        numb = str(a % 2) + numb
-        a = a // 2
-    print(numb)
+
+# text = 'один два'
+# new_text = text[text.find(' ') + 1:] + ' ' + text[:text.find(' ')]
+# print(new_text)
 
 
-while True:
-    x = int(input('-> '))
-    if x == 0:
-        break
-    func(x)
+text = 'Ежевику для ежат ' \
+       'Принеси два ежа. ' \
+       'Ежевику еле-еле ' \
+       'Ежата возле ели съели'
+
+text_arr = text.split(' ')
+count = 0
+for i in text_arr:
+    if i[0] == 'е' or i[0] == 'Е':
+        count += 1
+
+print(count)
