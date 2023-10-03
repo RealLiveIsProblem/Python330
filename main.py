@@ -3,6 +3,7 @@ import math
 import time
 import locale
 import builtins
+import re
 
 # locale.setlocale(locale.LC_ALL, 'ru')
 
@@ -970,15 +971,49 @@ import builtins
 # print(new_text)
 
 
-text = 'Ежевику для ежат ' \
-       'Принеси два ежа. ' \
-       'Ежевику еле-еле ' \
-       'Ежата возле ели съели'
+# text = 'Ежевику для ежат ' \
+#        'Принеси два ежа. ' \
+#        'Ежевику еле-еле ' \
+#        'Ежата возле ели съели'
+#
+# text_arr = text.split(' ')
+# count = 0
+# for i in text_arr:
+#     if i[0] == 'е' or i[0] == 'Е':
+#         count += 1
+#
+# print(count)
 
-text_arr = text.split(' ')
-count = 0
-for i in text_arr:
-    if i[0] == 'е' or i[0] == 'Е':
-        count += 1
+# s = '12 сентября 2023 года '
+# reg = r'\d{1,7}'
+# print(re.findall(reg, s))
 
-print(count)
+# text = '+ 7 499 456-45-78 , +74994564578 , 7 (499) 456 45 78 , 74994564578'
+# reg = r'\+?7\d{10}'
+# print(re.findall(reg, text))
+
+
+# print(re.findall(r'\w+', '12 + й'))
+# print(re.findall(r'\w+', '12 + й', flags=re.ASCII))
+# print(re.findall(r'\w+', '12 + й', flags=re.A))
+
+text = '+7 499 457-45-78' \
+       '+74994574578' \
+       '+7 (499) 457 45 78' \
+       '+7 (499) 457-45-78'
+
+reg = r'\+?7\s?\(?\d{3}\)?\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}'
+
+print(re.findall(reg, text))
+
+passwords = ('p@ssWord-', 'psw', 'psw+_asfw', 'P@ASSworD')
+
+
+def check_pass(pass_w):
+    return re.findall(r'[A-z0-9@_-]{6,18}$', pass_w)
+
+
+print(check_pass(passwords[0]))
+print(check_pass(passwords[1]))
+print(check_pass(passwords[2]))
+print(check_pass(passwords[3]))
